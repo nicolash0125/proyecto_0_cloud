@@ -66,7 +66,7 @@ usuarios_schema = Usuario_Schema(many = True)
 class RecursoListarEventos(Resource):
     def get(self):
         if not current_user.is_authenticated:
-            return {'error':'inicie sesion'}
+            return {'error':'inicie sesion'},401
         usuario = Usuario.query.filter_by(id=current_user.id).first()
         eventos = usuario.eventos
         return eventos_schema.dump(eventos)
@@ -147,9 +147,9 @@ class RecursoLogin(Resource):
         contrasena = request.json['contrasena']
         usuario = Usuario.query.filter_by(correo=correo).first()
         if not usuario:
-            return {'error':'Usuario no existe'}
+            return {'error':'Usuario no existe'},401
         if not usuario.contrasena == contrasena:
-            return {'error':'Contrasena incorrecta'}
+            return {'error':'Contrasena incorrecta'},401
         login_user(usuario)
 
         return {'ok':"Inicio sesion"}
