@@ -11,6 +11,8 @@ export default function DetailEvent() {
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
   const [presencialidad, setPresencialidad] = useState(false);
+
+  const [creado,setCreado]=useState(false)
   const url = "/eventos/"+data.idEvento;
   useEffect(()=> {
     
@@ -20,12 +22,6 @@ export default function DetailEvent() {
         // Obtenemos los datos
         console.log(response);
         setNombre(response.data.nombre)
-        setCategoria(response.data.categoria)
-        setLugar(response.data.lugar)
-        setDireccion(response.data.direccion)
-        setFechaInicio(response.data.fechaInicio)
-        setFechaFin(response.data.fechaFin)
-        setPresencialidad(response.data.presencialidad)
         
       })
       .catch((e) => {
@@ -42,6 +38,7 @@ export default function DetailEvent() {
       .then((response) => {
         // Obtenemos los datos
         console.log(response);
+        setCreado(true)
       })
       .catch((e) => {
         // Capturamos los errores
@@ -52,17 +49,6 @@ export default function DetailEvent() {
     <div className="p-5">
       <h1>Editar evento {nombre}</h1>
       <form>
-        <div className="form-group">
-          <label> Nombre: </label>
-          <input
-            className="form-control"
-            type="text"
-            value={nombre}
-            onChange={(event) => {
-              setNombre(event.target.value);
-            }}
-          />
-        </div>
         <div class="form-group">
           <label for="exampleFormControlSelect1">Categoria</label>
           <select
@@ -83,7 +69,6 @@ export default function DetailEvent() {
           <input
             className="form-control"
             type="text"
-            value={lugar}
             onChange={(event) => {
               setLugar(event.target.value);
             }}
@@ -94,7 +79,6 @@ export default function DetailEvent() {
           <input
             className="form-control"
             type="text"
-            value={direccion}
             onChange={(event) => {
               setDireccion(event.target.value);
             }}
@@ -106,13 +90,15 @@ export default function DetailEvent() {
           <input
             className="form-check-input"
             type="checkbox"
-            value={presencialidad}
             onChange={(event) => {
               setPresencialidad(event.target.checked);
             }}
           />
         </div>
       </form>
+      {creado?<div className="alert alert-success">
+        Evento editado, si deseas regrersar, oprime boton en la parte superior.
+      </div>:<></>}
       <button type="button" className="btn btn-primary" onClick={editarEvento}>
         Editar evento
       </button>

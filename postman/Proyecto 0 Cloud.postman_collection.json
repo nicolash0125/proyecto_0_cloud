@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "d9160eb2-6cf8-4255-8224-1c36b761cdb6",
+		"name": "Proyecto 0 Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"Explicaciones ABCD\",\n\t\"categoria\":\"Seminario\",\n\t\"lugar\":\"Bogota\",\n\t\"direccion\":\"Calle 345\",\n\t\"fechaInicio\":\"24/01/2021\",\n\t\"fechaFin\":\"28/01/2021\",\n\t\"presencialidad\":true \n}"
+				},
+				"url": {
+					"raw": "localhost:5000/eventos",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put evento",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Clase\",\n    \"categoria\": \"Curso\",\n    \"lugar\": \"Bogota\",\n    \"direccion\": \"Calle 2\",\n    \"fechaInicio\": \"21/01/2021\",\n    \"fechaFin\": \"27/01/2021\",\n    \"presencialidad\": false\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/eventos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/eventos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"eventos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"correo\":\"hola\",\n\t\"contrasena\":\"123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"correo\":\"test2\",\n\t\"contrasena\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:5000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get eventos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:5000/eventos",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"eventos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
